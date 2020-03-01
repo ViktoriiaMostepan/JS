@@ -18,39 +18,61 @@
 // }
 // console.log(pow(20, 4));
 
-const inputValue = Number(prompt("Введите число от 1 до 10"));
-const romeChars = {
-  X: 10,
-  IX: 9,
-  VIII: 8,
-  VII: 7,
-  VI: 6,
-  V: 5,
-  IV: 4,
-  III: 3,
-  II: 2,
-  I: 1
-};
-const convertToRoman = (input, rome) => {
-  for (let key in rome) {
-    if (rome[key] === input) {
-      return key;
+// const inputValue = Number(prompt("Введите число от 1 до 10"));
+// const romeChars = {
+//   X: 10,
+//   IX: 9,
+//   VIII: 8,
+//   VII: 7,
+//   VI: 6,
+//   V: 5,
+//   IV: 4,
+//   III: 3,
+//   II: 2,
+//   I: 1
+// };
+// const convertToRoman = (input, rome) => {
+//   for (let key in rome) {
+//     if (rome[key] === input) {
+//       return key;
+//     }
+//   }
+// };
+// console.log(convertToRoman(inputValue, romeChars));
+
+// const convertToRoman = num => {
+//   const lookup = { X: 10, IX: 9, V: 5, IV: 4, I: 1 };
+//   let roman = "";
+//   for (const i in lookup) {
+//     console.log("yes");
+//     while (num >= lookup[i]) {
+//       roman += i;
+//       num -= lookup[i];
+//     }
+//     if (num === 0) break;
+//   }
+//   return roman;
+// };
+// // console.log(lookup.X);
+// console.log(convertToRoman(35));
+
+const word = "VVVoesnesoooooonbvnbv";
+
+// (function symbolsCounter(word) {
+//   word = word.toLowerCase();
+//   console.log(Number(word.split("o").length - 1));
+// })(word);
+
+(function symbolDelater(word) {
+  word = word.toLowerCase();
+  let splitWord = word.split("");
+  let wordArr = [];
+  for (let i = 0; i <= word.length - 1; i++) {
+    if (splitWord[i] !== "o") {
+      wordArr.push(splitWord[i]);
+    } else {
+      continue;
     }
   }
-};
-console.log(convertToRoman(inputValue, romeChars));
-
-// const numbersArr = [
-//   "I",
-//   "II",
-//   "III",
-//   "IV",
-//   "V",
-//   "VI",
-//   "VII",
-//   "VIII",
-//   "IX",
-//   "X"
-// ];
-
-// console.log(numbersArr[inputValue - 1]);
+  console.log(wordArr.join(""));
+})(word);
