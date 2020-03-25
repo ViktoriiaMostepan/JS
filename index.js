@@ -115,39 +115,39 @@
 
 // *****Task 4*****
 
-const authors = [
-  {
-    id: 1,
-    name: "Айзек",
-    surname: "Азимов"
-  },
-  {
-    id: 2,
-    name: "Рэй",
-    surname: "Брэдбери"
-  },
-  {
-    id: 3,
-    name: "Роберт",
-    surname: "Хайнлайн"
-  },
-  {
-    id: 4,
-    name: "Филип",
-    surname: "Дик"
-  },
-  {
-    id: 5,
-    name: "Дэн",
-    surname: "Симмонс"
-  }
-];
+// const authors = [
+//   {
+//     id: 1,
+//     name: "Айзек",
+//     surname: "Азимов"
+//   },
+//   {
+//     id: 2,
+//     name: "Рэй",
+//     surname: "Брэдбери"
+//   },
+//   {
+//     id: 3,
+//     name: "Роберт",
+//     surname: "Хайнлайн"
+//   },
+//   {
+//     id: 4,
+//     name: "Филип",
+//     surname: "Дик"
+//   },
+//   {
+//     id: 5,
+//     name: "Дэн",
+//     surname: "Симмонс"
+//   }
+// ];
 
-const word = "симмонс";
-(function search(authors, word) {
-  const outputObj = authors.filter(
-    item =>
-      item.name.toLowerCase() === word || item.surname.toLowerCase() === word
-  );
-  outputObj.length > 0 ? console.log(outputObj) : console.log("совпадений нет");
-})(authors, word);
+// const word = "симмонс";
+// (function search(authors, word) {
+//   const outputObj = authors.filter(
+//     item =>
+//       item.name.toLowerCase() === word || item.surname.toLowerCase() === word
+//   );
+//   outputObj.length > 0 ? console.log(outputObj) : console.log("совпадений нет");
+// })(authors, word);
