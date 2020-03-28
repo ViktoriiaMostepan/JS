@@ -1,0 +1,73 @@
+.container {
+  padding-top: 100px;
+  background-color: rgba(192, 163, 219, 0.6);
+}
+
+.timerWindow {
+  width: 750px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 2px solid;
+  border-color: rgba(116, 91, 173, 0.9);
+  border-radius: 4px;
+  margin-left: 250px;
+  margin: auto;
+  padding-left: 145px;
+  padding-top: 90px;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 600px;
+  font-size: xx-large;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 600px;
+  font-size: x-large;
+}
+
+.button {
+  height: 45px;
+  width: 90px;
+  background-color: rgba(181, 164, 199, 0.849);
+  border: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: rgba(146, 118, 175, 0.849);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.startButton {
+  color: green;
+}
+
+.stopButton {
+  color: red;
+}
+
+.pauseButton {
+  color: orange;
+}
+
+.disable {
+  color: gray;
+}
+
+.disable:hover {
+  background-color: rgba(181, 164, 199, 0.849);
+}

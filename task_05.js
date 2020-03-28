@@ -47,17 +47,28 @@ const data = [
 
 function createObject() {
   const newObj = data.reduce((acc, item) => {
-    const authors = {
-      id: item[0],
-      name: item[1],
-      surname: item[2],
-      books: item[3],
-    };
+    const [id, name, surname, books] = item;
+    const authors = { id, name, surname, books };
     acc.push(authors);
     return acc;
   }, []);
   newObj.sort((a, b) => a.id - b.id);
   console.log(newObj);
 }
+
+// function createObject() {
+//   const newObj = data.reduce((acc, item) => {
+//     const authors = {
+//       id: item[0],
+//       name: item[1],
+//       surname: item[2],
+//       books: item[3],
+//     };
+//     acc.push(authors);
+//     return acc;
+//   }, []);
+//   newObj.sort((a, b) => a.id - b.id);
+//   console.log(newObj);
+// }
 
 createObject();

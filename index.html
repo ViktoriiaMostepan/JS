@@ -2,11 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <title>Page</title>
+    <title>Timer</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <!-- <script src="index.js"></script> -->
-    <script src="task_05.js"></script>
+  <body class="container">
+    <div class="timerWindow">
+      <div class="time">
+        <div class="hours" name="hours">00</div>
+        <div class="separator">:</div>
+        <div class="minutes" name="minutes">00</div>
+        <div class="separtor">:</div>
+        <div class="seconds" name="seconds">00</div>
+      </div>
+      <div class="buttons" name="buttons">
+        <button class="startButton button" name="start" type="button">
+          START
+        </button>
+        <button
+          class="pauseButton button disable"
+          name="pause"
+          type="button"
+          disabled
+        >
+          PAUSE
+        </button>
+        <button
+          class="stopButton button disable"
+          name="stop"
+          type="button"
+          disabled
+        >
+          RESET
+        </button>
+      </div>
+    </div>
+    <script src="./timer.js" type="module"></script>
   </body>
 </html>
