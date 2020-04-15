@@ -12,41 +12,20 @@ const refs = {
 
 let startTime = null;
 let intervalId = null;
-let currentDelta = 0;
 let deltaTime = null;
+let currentDelta = 0;
 
-function start(name) {
-  if (name === 'start') {
-    intervalId = setInterval(getTime, 1000);
-    refs.startButton.disabled = true;
-    refs.startButton.classList.toggle('disable');
-    refs.pauseButton.disabled = false;
-    refs.pauseButton.classList.remove('disable');
-    refs.stopButton.disabled = false;
-    refs.stopButton.classList.remove('disable');
-  } else if (name === 'pause') {
-    clearInterval(intervalId);
-    refs.startButton.disabled = false;
-    refs.startButton.classList.toggle('disable');
-    refs.pauseButton.disabled = true;
-    refs.pauseButton.classList.toggle('disable');
-    currentDelta = deltaTime;
-    startTime = null;
-  } else {
-    stop();
-    startTime = null;
-    clearInterval(intervalId);
-    refs.startButton.disabled = false;
-    refs.startButton.classList.remove('disable');
-    refs.pauseButton.disabled = true;
-    refs.pauseButton.classList.add('disable');
-    refs.stopButton.disabled = true;
-    refs.stopButton.classList.add('disable');
-    currentDelta = null;
-  }
-}
+const pad = value => {
+  return String(value).padStart(2, '0');
+};
 
-function getTime() {
+const updateTimerValue = (sec, min, hou) => {
+  refs.seconds.textContent = sec;
+  refs.minutes.textContent = min;
+  refs.hours.textContent = hou;
+};
+
+const getTime = () => {
   if (startTime === null) {
     startTime = new Date();
   }
@@ -56,23 +35,56 @@ function getTime() {
   const hou = pad(new Date(deltaTime).getUTCHours());
   updateTimerValue(sec, min, hou);
   console.log(`${hou}:${min}:${sec}`);
-}
+};
 
-function pad(value) {
-  return String(value).padStart(2, '0');
-}
-
-function updateTimerValue(sec, min, hou) {
-  refs.seconds.textContent = sec;
-  refs.minutes.textContent = min;
-  refs.hours.textContent = hou;
-}
-
-function stop() {
+const stop = () => {
   refs.seconds.textContent = '00';
   refs.minutes.textContent = '00';
   refs.hours.textContent = '00';
-}
+};
+
+const styleStartBtn = () => {
+  refs.startButton.disabled = true;
+  refs.startButton.classList.toggle('disable');
+  refs.pauseButton.disabled = false;
+  refs.pauseButton.classList.remove('disable');
+  refs.stopButton.disabled = false;
+  refs.stopButton.classList.remove('disable');
+};
+
+const stylePauseBtn = () => {
+  refs.startButton.disabled = false;
+  refs.startButton.classList.toggle('disable');
+  refs.pauseButton.disabled = true;
+  refs.pauseButton.classList.toggle('disable');
+};
+
+const styleStopBtn = () => {
+  refs.startButton.disabled = false;
+  refs.startButton.classList.remove('disable');
+  refs.pauseButton.disabled = true;
+  refs.pauseButton.classList.add('disable');
+  refs.stopButton.disabled = true;
+  refs.stopButton.classList.add('disable');
+};
+
+const start = name => {
+  if (name === 'start') {
+    intervalId = setInterval(getTime, 1000);
+    styleStartBtn();
+  } else if (name === 'pause') {
+    clearInterval(intervalId);
+    stylePauseBtn();
+    currentDelta = deltaTime;
+    startTime = null;
+  } else {
+    stop();
+    clearInterval(intervalId);
+    styleStopBtn();
+    currentDelta = null;
+    startTime = null;
+  }
+};
 
 refs.buttons.addEventListener('click', e => {
   if (e.target.tagName !== 'BUTTON') {
